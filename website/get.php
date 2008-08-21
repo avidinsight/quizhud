@@ -22,6 +22,8 @@ where you can try out a demo, or get the objects for your own personal use.
  <a href="secondlife://virtuALBA/106/247/24" title="Click here to teleport to our site on virtuALBA">
   Teleport Now
  </a>
+
+<h3>NOTE: Tools are not quite available yet. Very very soon though!</h3>
 </p>
 <?php end_single_column(); ?>
 
@@ -51,7 +53,7 @@ where you can try out a demo, or get the objects for your own personal use.
 <?php start_single_column('Source Code Checkout'); ?>
 <p>
  Since quizHUD is programmed in LSL and PHP, everything is distributed as source code anyway, so our regular download is even if you simply want to browse the source code.
- However, if you would like the obtain an SVN checkout of the source code, which can be easily updated anytime, then you will soon be able to do so from our
+ However, if you would like the obtain an SVN checkout of the source code, which can be easily updated anytime, then you can do so from our 
  <a href="http://code.google.com/p/quizhud/source/checkout" title="Click here to visit the GoogleCode site">GoogleCode repository</a>.
 </p>
 
