@@ -31,10 +31,10 @@
 
 // Root URL of the site we are connecting to.
 // (should correspond to the value in your config.php file).
-string QUIZHUD_WWW_ROOT = "http://quizhud.avid-insight.co.uk";
+string QUIZHUD_WWW_ROOT = "";
 
 // QuizHUD password for security (should correspond to value in your config.php file).
-string QUIZHUD_INTERNAL_PWD = "testing";
+string QUIZHUD_INTERNAL_PWD = "";
 
 // The ID number of quiz which this HUD should use.
 // If you make this 0, then it will always use the 'current' quiz,

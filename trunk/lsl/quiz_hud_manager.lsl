@@ -30,7 +30,7 @@
 ///// CONFIGURATION /////
 
 // QuizHUD password for security (should correspond to value in your config.php file).
-string QUIZHUD_INTERNAL_PWD = "testing";
+string QUIZHUD_INTERNAL_PWD = "";
 
 
 ///// DATA /////
