@@ -244,6 +244,20 @@ hr {
 	border-bottom: 1px solid #949EA4;
 }
 
+/* Two columns menu */
+
+.two-columns .entry ul {
+	margin: 0;
+	/*padding: 20px;*/
+	list-style: none;
+}
+
+.two-columns .entry li {
+	padding: 5px 15px;
+	/*background: url(images/img14.gif) no-repeat left center;*/
+	border-bottom: 1px solid #949EA4;
+}
+
 /* Posts Menu */
 
 .posts-menu {
@@ -272,7 +286,7 @@ hr {
 
 #recent-posts li {
 	padding: 5px 15px 5px 17px;
-	background: url(images/img15.gif) no-repeat left center;
+	background: url(images/img14.gif) no-repeat left center;
 	border-bottom: 1px solid #949EA4;
 }
 

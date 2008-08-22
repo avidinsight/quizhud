@@ -35,19 +35,48 @@ The source code for quizHUD is made freely available under the
 <p>&nbsp;</p>
 
 <?php start_two_columns("Developers"); ?>
+<p>
+The following individuals have contributed to the development of quizHUD:
+</p>
 <ul>
- <li>Peter R. Bloomfield <i>(SL: Pedro McMillan)</i></li>
+ <li>
+  <a href="http://peter.avid-insight.co.uk" title="Click here to visit Peter's website">Peter R. Bloomfield</a>
+  <i>(SL: <a href="http://pedro.avid-insight.co.uk" title="Click here to visit Pedro's website">Pedro McMillan</a>)</i>
+ </li>
+ 
  <li>Clement Ramel <i>(SL: Pidtwicky Acker)</i></li>
+ 
  <li>Daniel Livingstone <i>(SL: Buddy Sprocket)</i></li>
+ 
 </ul>
 <?php start_second_column("Supported by..."); ?>
 <p>
 We wish to thank the following organisations for their support:
 </p>
 <ul>
- <li>University of the West of Scotland</li>
- <li>Eduserv</li>
- <li>Sloodle</li>
+ <li>
+  <a href="http://www.uws.ac.uk" title="Click here to visit the University's website">
+   University of the West of Scotland
+  </a>
+ </li>
+ 
+ <li>
+  <a href="http://www.eduserv.org.uk" title="Click here to visit Eduserv's website">
+   Eduserv
+  </a>
+ </li>
+ 
+ <li>
+  <a href="http://www.sloodle.org" title="Click here to visit the Sloodle project website">
+   Sloodle
+  </a>
+ </li>
+ 
+ <li>
+  <a href="http://www.virtualba.co.uk" title="Click here to visit virtuALBA's website">
+   virtuALBA
+  </a>
+ </li>
 </ul>
 <?php end_two_columns(); ?>
 
