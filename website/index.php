@@ -1,6 +1,10 @@
 <?php
 // quizHUD website index page
 
+// Should we show all news items?
+$showallnews = false;
+if (!empty($_GET['showallnews']) && $_GET['showallnews'] == 'true') $showallnews = true;
+
 require_once('config.php');
 
 $CFG->pagetitle = 'quizHUD :: Home';
@@ -30,7 +34,37 @@ Downloads will be made available very soon!
 <?php end_single_column(); ?>
 
 
-<h1 style="text-align:center;"><br/>News</h1>
+<h1 style="text-align:center;" id="news"><br/>News</h1>
+
+<?php start_single_column("In-World Tools", null, null, false); ?>
+<p>
+ If you mosey over to our <a href="get.php" title="Click here to get the quizHUD tools">Get quizHUD</a> section,
+ you will see that the in-world objects are now available. Click on there link there to teleport to the location in Second Life,
+ where you can try out the demo, or get objects to setup the quizHUD yourself.
+</p>
+
+<p>
+ Let us know what you think!
+</p>
+<?php end_single_column('22nd August 2008', 'Peter R. Bloomfield'); ?>
+
+<p>&nbsp;</p>
+
+
+<?php
+// By default, stop here and show a link for "more"
+if (!$showallnews) {
+    echo <<<XXXEODXXX
+ <p style="text-align:center; font-size:140%; font-weight:bold;">
+  <a href="index.php?showallnews=true#news" title="Click here to read all the news items">More News...</a>
+ </p>
+XXXEODXXX;
+
+    require_once('_page_footer.php');
+    exit();
+}
+?>
+
 
 <?php start_single_column("Repository and Video", null, null, false); ?>
 <p>

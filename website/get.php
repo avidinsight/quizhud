@@ -18,12 +18,15 @@ We are currently residing on the <abbr title="virtuALBA is owned by the Universi
 where you can try out a demo, or get the objects for your own personal use.
 </p>
 
-<p style="text-align:center; font-size:140%;">
+<p style="text-align:center; font-size:180%; font-weight:bold;">
  <a href="secondlife://virtuALBA/106/247/24" title="Click here to teleport to our site on virtuALBA">
   Teleport Now
  </a>
+</p>
 
-<h3>NOTE: Tools are not quite available yet. Very very soon though!</h3>
+<p>
+ You will see two signs up. One will give you the "virtuALBA demo" quizHUD, which you can wear and use immediately to try out the tool.
+ The other will give all the objects and script you need to setup your own quizHUD systems.
 </p>
 <?php end_single_column(); ?>
 
