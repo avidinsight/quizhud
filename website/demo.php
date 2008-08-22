@@ -36,7 +36,7 @@ require_once('_page_header.php');
 
 <p>&nbsp;</p>
 
-<?php start_single_column('Demo Videos'); ?>
+<?php start_single_column('Demo Videos', null, null, false); ?>
 <p>
 All our demo videos are hosted courtesy of <a href="http://www.youtube.com/" title="Click here to visit YouTube.">YouTube</a>.
 You can either use the player above to look through our existing videos, or search YouTube for "quizHUD".

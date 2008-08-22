@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /demo/
+Disallow: /lib.php
+Disallow: /_page_header.php
+Disallow: /_page_footer.php
+Disallow: /images/email_peter.jpg

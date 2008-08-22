@@ -32,7 +32,7 @@ Downloads will be made available very soon!
 
 <h1 style="text-align:center;"><br/>News</h1>
 
-<?php start_single_column("Repository and Video"); ?>
+<?php start_single_column("Repository and Video", null, null, false); ?>
 <p>
 Day 1, and already we've got 2 newsworthy updates!
 </p>
@@ -49,7 +49,9 @@ The first demo video is also up on <a href="http://www.youtube.com/" title="Clic
 <p>More soon!</p>
 <?php end_single_column('21st August 2008', 'Peter R. Bloomfield'); ?>
 
-<?php start_single_column("Website Online"); ?>
+<p>&nbsp;</p>
+
+<?php start_single_column("Website Online", null, null, false); ?>
 <p>
 We are pleased to get this website online, to show you the upcoming quizHUD features.
 Please bear with us while the remaining issues are ironed-out to ensure you have a pleasant

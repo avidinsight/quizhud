@@ -141,6 +141,12 @@ hr {
 	font-size: 2em;
 }
 
+.wide-post-lower .title {
+	padding: 30px 30px 20px 30px;
+	background: url(images/img05b.gif) no-repeat;
+	font-size: 2em;
+}
+
 .wide-post .title a {
 	text-decoration: none;
 	border-bottom: 1px solid #B4BBBE;

@@ -15,10 +15,14 @@
 //  $title = the title to display at the top of the box
 //  $id = an ID tag for the box (optional)
 //  $style = additional stylesheet information (optional)
-function start_single_column($title, $id=null, $style=null)
+//  $top = if true (default) then the box will be styled for display at the top of the page
+// NOTE: if the box will be anything but at the top, then a different rounded-corners image for the top needs to be used.
+function start_single_column($title, $id=null, $style=null, $top=true)
 {
     // Start the box
-    echo '<div class="wide-post"';
+    echo '<div class="wide-post';
+    if (!$top) echo ' wide-post-lower';
+    echo '" ';
     if (!empty($id)) echo " id=\"{$id}\" ";
     if (!empty($style)) echo " style=\"{$style}\" ";
     echo ">\n";

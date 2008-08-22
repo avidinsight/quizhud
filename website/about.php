@@ -14,10 +14,10 @@ require_once('_page_header.php');
 <?php start_single_column('About quizHUD'); ?>
 <p>
 <img src="images/manager_screenshot_1.jpg" style="float:right; margin-left:12px; border:solid 1px black;" alt="quizHUD screenshot" title="A screenshot showing the quizHUD 'Manager' object in Second Life" />
-The quizHUD began life in early 2008, as a demonstration how Second Life's HTML-on-a-prim ('HOAP') capabilities
+The quizHUD began life in early 2008, as a demonstration of how Second Life's HTML-on-a-prim ('HOAP') capabilities
 could be controlled to provide a unique experience for each user.
 This was developed further to add a quiz element, and finally a full integration with separate website software was created,
-allowing of the content and quizzes to adminsitered remotely.
+allowing the content and quizzes to be adminsitered remotely.
 The core features of quizHUD were completed in August 2008.
 </p>
 

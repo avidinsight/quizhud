@@ -15,9 +15,12 @@ Customized and generally butchered by Peter R. Bloomfield for the quizHUD projec
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
 <title><?php echo $CFG->pagetitle; ?></title>
+
 <meta name="keywords" content="<?php echo $CFG->pagekeywords; ?>" />
 <meta name="description" content="<?php echo $CFG->pagedescription; ?>" />
+<link rel="icon" type="image/png" href="<?php echo $CFG->wwwroot; ?>/favicon.png"/>
 
 <?php
 if (is_array($CFG->styles)) {

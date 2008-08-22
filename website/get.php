@@ -31,7 +31,7 @@ where you can try out a demo, or get the objects for your own personal use.
 <p>&nbsp;</p>
 
 
-<?php start_single_column('Download quizHUD Software'); ?>
+<?php start_single_column('Download quizHUD Software', null, null, false); ?>
 <p>
  Before you can use your own quizHUD, you will need to download and install the software on a webserver.
  You will need a webserver with PHP4 or higher and MySQL 4 or higher.
@@ -50,7 +50,7 @@ where you can try out a demo, or get the objects for your own personal use.
 
 <h1 style="text-align:center; margin-bottom:12px;">For Developers:</h1>
 
-<?php start_single_column('Source Code Checkout'); ?>
+<?php start_single_column('Source Code Checkout', null, null, false); ?>
 <p>
  Since quizHUD is programmed in LSL and PHP, everything is distributed as source code anyway, so our regular download is even if you simply want to browse the source code.
  However, if you would like the obtain an SVN checkout of the source code, which can be easily updated anytime, then you can do so from our 
