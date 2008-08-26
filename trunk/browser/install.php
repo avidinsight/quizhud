@@ -60,7 +60,7 @@ if ($confirmed) {
     	CREATE TABLE `qh_answer` (
 		`id` int(10) unsigned NOT NULL auto_increment COMMENT 'Primary id',
 		`questionid` int(10) unsigned NOT NULL COMMENT 'The question this answer relates to',
-		`shortname` varchar(20) NOT NULL COMMENT 'A short name by which this answer can be identified. Must be unique within a given question. Should be a letter for multiple choice, e.g. a, b, c, or d. Should be the name of a clickable feature for explore questions.',
+		`shortname` varchar(255) NOT NULL COMMENT 'A short name by which this answer can be identified. Must be unique within a given question. Should be a letter for multiple choice, e.g. a, b, c, or d. Should be the name of a clickable feature for explore questions.',
 		`text` varchar(255) NOT NULL COMMENT 'The text of this answer',
 		`value` float NOT NULL default '1' COMMENT 'The value of this answer if selected',
 		PRIMARY KEY  (`id`),
@@ -74,7 +74,7 @@ if ($confirmed) {
 		`id` int(10) unsigned NOT NULL auto_increment COMMENT 'Primary id',
 		`questionid` int(10) unsigned NOT NULL COMMENT 'The ID of the question being attempted',
 		`userid` int(10) unsigned NOT NULL COMMENT 'The user who made this attempt',
-		`answer` varchar(20) NOT NULL COMMENT 'Identifies the answer which was selected. Should relate to the shortname field of the answers section.',
+		`answer` varchar(255) NOT NULL COMMENT 'Identifies the answer which was selected. Should relate to the shortname field of the answers section.',
 		`timestamp` int(10) unsigned NOT NULL COMMENT 'The time at which this attempt was received',
 		PRIMARY KEY  (`id`),
 		KEY `userid` (`userid`),
