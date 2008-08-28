@@ -154,9 +154,13 @@ if ($quizid === null || $quizid < 1) {
     if ($attemptid === false) exit("ERROR");
     
     // Indicate the status of the answer
-    if ($value == 1.0) echo "CORRECT\n";
-    else if ($value <= 0.0) echo "INCORRECT\n";
-    else echo "PART CORRECT\n";
+    if ($questions[$questionid]->weight > 0.0) {
+        if ($value == 1.0) echo "CORRECT\n";
+        else if ($value <= 0.0) echo "INCORRECT\n";
+        else echo "PART CORRECT\n";
+    } else {
+        echo "UNASSESSED\n";
+    }
     
     echo $attemptid;
 }

@@ -96,7 +96,7 @@ if ($questionid === null || $questionid < 1) {
 	// Display the score, if appliccable
     if (!$issurvey && isset($score)) {
         if ($score === false) echo '<p style="font-weight:bold;">You current score: (not attempted)',"</p>\n";
-        else echo '<p style="font-weight:bold;">Your current score: ',$score,"%</p>\n";
+        else echo '<p style="font-weight:bold;">Your current score: ',round($score,1),"%</p>\n";
     }
     echo "<p style=\"font-size:150%; color:#0000ff; text-decoration:underline; text-align:center;\">Click here to start a new attempt.</p>\n";
     
