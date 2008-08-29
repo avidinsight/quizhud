@@ -41,7 +41,7 @@ if (is_installed()) {
 } else {
     // No - display a link to the installation page
     $installurl = QUIZHUD_WWW_ROOT.'/browser/install.php';
-    error("quizHUD does not appear to have been installed in your database yet. Please visit the <a href=\"$installurl\" title=\"Click here to install quizHUD\" style=\"color:blue; text-decoration:underline;\">installation page</a> before continuing.");
+    error("quizHUD does not appear to have been installed in your database yet. Please visit the <a href=\"$installurl\" title=\"Click here to install quizHUD\">installation page</a> before continuing.");
 }
 
 ?>

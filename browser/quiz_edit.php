@@ -53,7 +53,7 @@ if (isset($_POST['id'])) {
 } else if (isset($_SESSION['id'])) {
 	// SESSION - applying quiz changes
     // Grab the all the values from the session data, and unset them
-    $quiz = new QuizHUDQuiz($_SESSION['id'], $_SESSION['name'], $_SESSION['method']);
+    $quiz = new QuizHUDQuiz($_SESSION['id'], stripslashes($_SESSION['name']), stripslashes($_SESSION['method']));
     
     unset($_SESSION['id']);
     unset($_SESSION['name']);
