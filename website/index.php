@@ -33,22 +33,22 @@ Downloads will be made available very soon!
 
 <?php end_single_column(); ?>
 
-
 <h1 style="text-align:center;" id="news"><br/>News</h1>
 
-<?php start_single_column("In-World Tools", null, null, false); ?>
+<?php start_single_column("Software Release", null, null, false); ?>
 <p>
- If you mosey over to our <a href="get.php" title="Click here to get the quizHUD tools">Get quizHUD</a> section,
- you will see that the in-world objects are now available. Click on there link there to teleport to the location in Second Life,
- where you can try out the demo, or get objects to setup the quizHUD yourself.
+ At last, you are able to download the quizHUD software and install it yourself!
+ Take a look at our <a href="get.php" title="Click here to get the quizHUD tools">Get quizHUD</a> page,
+ and go down to the 'Download quizHUD Software' section, to get all the details.
 </p>
 
 <p>
- Let us know what you think!
+ Happy quizzing!
 </p>
-<?php end_single_column('22nd August 2008', 'Peter R. Bloomfield'); ?>
+<?php end_single_column('29th August 2008', 'Peter R. Bloomfield'); ?>
 
 <p>&nbsp;</p>
+
 
 
 <?php
@@ -64,6 +64,20 @@ XXXEODXXX;
     exit();
 }
 ?>
+
+<?php start_single_column("In-World Tools", null, null, false); ?>
+<p>
+ If you mosey over to our <a href="get.php" title="Click here to get the quizHUD tools">Get quizHUD</a> section,
+ you will see that the in-world objects are now available. Click on there link there to teleport to the location in Second Life,
+ where you can try out the demo, or get objects to setup the quizHUD yourself.
+</p>
+
+<p>
+ Let us know what you think!
+</p>
+<?php end_single_column('22nd August 2008', 'Peter R. Bloomfield'); ?>
+
+<p>&nbsp;</p>
 
 
 <?php start_single_column("Repository and Video", null, null, false); ?>
