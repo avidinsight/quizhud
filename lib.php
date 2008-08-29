@@ -557,6 +557,7 @@ function get_questions($id, $skipunassessed = false, $skipnoanswers = true)
         SELECT *
         FROM qh_question
         WHERE quizid = $id
+        ORDER BY id
         LIMIT 0,10000
     ");
 

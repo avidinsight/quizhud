@@ -45,7 +45,7 @@ if (isset($_GET['pageid'])) {
     }
 } else if (isset($_SESSION['id'])) {
     // Grab the all the values from the session data, and unset them
-    $page = new QuizHUDPage($_SESSION['id'], $_SESSION['name'], $_SESSION['title'], $_SESSION['text'], $_SESSION['image'], $_SESSION['layout']);
+    $page = new QuizHUDPage($_SESSION['id'], stripslashes($_SESSION['name']), htmlentities(stripslashes($_SESSION['title']), ENT_QUOTES), stripslashes($_SESSION['text']), $_SESSION['image'], $_SESSION['layout']);
     
     unset($_SESSION['id']);
     unset($_SESSION['name']);

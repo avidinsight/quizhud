@@ -39,16 +39,21 @@ $errormessage = '';
 // Has question edit data been submitted?
 if (isset($_POST['save_question'])) {
     // Get the quiz and question IDs
-    $quizid = $_POST['quizid'];
+    $quizid = (int)$_POST['quizid'];
     if ($_POST['id'] == 0) $questionid = 'new';
-    else $questionid = $_POST['id'];
+    else $questionid = (int)$_POST['id'];
+
+    // Extract and sanitize our form data
+    $formdata_quizid = (int)$_POST['quizid'];
+    $formdata_text = htmlentities($_POST['text'], ENT_QUOTES);
+    $formdata_weight = (float)$_POST['weight'];
 
     // Is it a new question?
     if ($_POST['id'] == 0) {
         // Insert it
         $result = mysql_query("
             INSERT INTO qh_question (quizid, text, weight, type)
-            VALUES ({$_POST['quizid']}, '{$_POST['text']}', {$_POST['weight']}, 'explore')
+            VALUES ({$formdata_quizid}, '{$formdata_text}', {$formdata_weight}, 'explore')
         ");
         if ($result) {
             $_SESSION['message'] = 'Added new question successfully.';
@@ -61,8 +66,8 @@ if (isset($_POST['save_question'])) {
         // Update it
         $result = mysql_query("
             UPDATE qh_question
-            SET text = '{$_POST['text']}', weight = {$_POST['weight']}
-            WHERE id = {$_POST['id']} AND quizid = {$_POST['quizid']}
+            SET text = '{$formdata_text}', weight = {$formdata_weight}
+            WHERE id = {$questionid} AND quizid = {$formdata_quizid}
             LIMIT 1
         ");
         if ($result) $_SESSION['message'] = 'Updated question successfully.';
@@ -89,10 +94,10 @@ if (isset($_POST['save_answers'])) {
         // Extract the ID, and find the 'shortname' and 'value' parameters
         $answerid = (int)substr($parname, 5);
         if ($answerid <= 0) continue;
-        $shortname = addslashes($_POST['shortname_'.$answerid]);
+        $shortname = htmlentities($_POST['shortname_'.$answerid], ENT_QUOTES);
         $value = (float)$_POST['value_'.$answerid];
         // Sanitize the text part
-        $text = addslashes($parvalue);
+        $text = htmlentities($parvalue, ENT_QUOTES);
         
         // Update the entry
         $result = $result && mysql_query("
@@ -116,8 +121,8 @@ if (isset($_POST['add_answer'])) {
     // Extract the items of data
     $quizid = (int)$_POST['quizid'];
     $questionid = (int)$_POST['questionid'];
-    $text = addslashes($_POST['text']);
-    $shortname = addslashes($_POST['shortname']);
+    $text = htmlentities($_POST['text'], ENT_QUOTES);
+    $shortname = htmlentities($_POST['shortname'], ENT_QUOTES);
     $value = (float)$_POST['value'];
     
     // Insert the answer
