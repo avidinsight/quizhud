@@ -55,6 +55,10 @@ if ($confirmed) {
     // Start the installation process
     //
     $result = true;
+    echo "<pre>";
+    
+    if ($result) echo "Creating answers table: qh_answer\n";
+    ob_flush();
     $result = $result && mysql_query("DROP TABLE IF EXISTS `qh_answer`;");
     $result = $result && mysql_query("
     	CREATE TABLE `qh_answer` (
@@ -68,6 +72,8 @@ if ($confirmed) {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='One record per possible answer';
 		");
 
+    if ($result) echo "Creating attempt table: qh_attempt\n";
+    ob_flush();
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_attempt`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `qh_attempt` (
@@ -82,6 +88,8 @@ if ($confirmed) {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='One record per submitted answer';
 	");
 
+    if ($result) echo "Creating pages table: qh_page\n";
+    ob_flush();
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_page`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `qh_page` (
@@ -95,7 +103,18 @@ if ($confirmed) {
 		UNIQUE KEY `name` (`name`)
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Each record represents a page which can appear in the HUD';
 	");
+    
+    if ($result) echo "Inserting default system pages\n";
+    ob_flush();
+    $result = $result && mysql_query("
+        INSERT INTO `qh_page` (`id`, `name`, `title`, `text`, `image`, `layout`) VALUES
+        (2, 'home', 'Welcome!', '<p style=\"font-size:16pt;\">Your Quiz HUD is working and ready for use.</p>\n\n<p style=\"font-size:14pt;\">You can learn about your surroundings using the \"Explore\" tab, or take a quiz using the \"Quiz\" tab.</p>', 'qh.jpg', 'imageright'),
+        (3, 'help', 'Help', '<p style=\"font-weight:bold; font-size:14pt;\">Use the tabs at the top to navigate to the main parts of the Quiz HUD.</p>\n\n<p style=\"font-size:10pt;\">If you click the \"Explore\" tab, you can select features in your environment to learn about.</p>\n\n<p style=\"font-size:10pt;\">If you click the \"Quiz\" tab, you can take a quiz to assess your learning.</p>', 'question.jpg', 'imageright'),
+        (5, 'explore', 'Explore Mode', '<p>\nWelcome to explore mode!<br/><br/>\n\nIn this mode, you can click the objects around you in the virtual environment.\n</p>', 'magnifier.jpg', 'imageright');
+    ");
 
+    if ($result) echo "Creating question table: qh_question\n";
+    ob_flush();
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_question`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `qh_question` (
@@ -108,6 +127,8 @@ if ($confirmed) {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='One record per question'; 
 	");
 
+    if ($result) echo "Creating quiz table: qh_quiz\n";
+    ob_flush();
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_quiz`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `qh_quiz` (
@@ -118,6 +139,8 @@ if ($confirmed) {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='One record per quiz';
 	");
 
+    if ($result) echo "Creating user table: qh_user\n";
+    ob_flush();
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_user`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `qh_user` (
@@ -129,6 +152,8 @@ if ($confirmed) {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='One record per known user';
 	");
 
+    if ($result) echo "Creating configuration table: qh_config\n";
+    ob_flush();
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_config`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `quizhud`.`qh_config` (
@@ -138,6 +163,8 @@ if ($confirmed) {
 		UNIQUE (`name`)
 		) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT = 'Each record is a quizHUD configuration setting.';
 	");
+    
+    echo "</pre><br/>\n";
     
     // Did an error occur?
     if ($result === false) {

@@ -167,6 +167,18 @@ default
 {
     state_entry()
     {
+        // Move to idle state if not attached as HUD item or if not configured
+        if (llGetAttached() <= 30) {
+            state idle;
+            return;
+        }
+        if (QUIZHUD_WWW_ROOT == "") {
+            llOwnerSay("Error: not configured yet. Please provide the WWW root in the script.");
+            state idle;
+            return;
+        }
+        llOwnerSay("Connected to: " + QUIZHUD_WWW_ROOT);
+        
         // Initially display the home page or a quiz summary
         if (showingquiz) {
             activate_tab("tab_quiz");
@@ -248,6 +260,32 @@ default
             
             showingquiz = FALSE;
         }
+    }
+    
+    attach(key id) { llResetScript(); }
+    on_rez(integer par) { llResetScript(); }
+}
+
+// Idle state: move to this state when not configured or not attached to HUD
+state idle
+{
+    state_entry()
+    {
+        if (llGetAttached() <= 30) {
+            llSetText("ERROR: Please attach me as a HUD device", <1.0, 0.0, 0.0>, 1.0);
+        }
+    }
+    
+    state_exit()
+    {
+        llSetText("", <0.0, 0.0, 0.0>, 0.0);
+    }
+    
+    touch_start(integer num)
+    {
+        if (llDetectedKey(0) != llGetOwner()) return;
+        if (llGetAttached() <= 30) llOwnerSay("Error: please attach me as a HUD device");
+        if (QUIZHUD_WWW_ROOT == "") llOwnerSay("Error: not configured yet. Please provide the WWW root in the script.");
     }
     
     attach(key id) { llResetScript(); }
