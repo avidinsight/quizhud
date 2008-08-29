@@ -63,9 +63,9 @@ if (empty($_POST['id'])) header('Location: '.QUIZHUD_WWW_ROOT.'/browser/pages.ph
 
 // Fetch all incoming POST data
 $id = fetch_param_integer('id', 0);
-$name = strip_tags(fetch_param_string('name', ''));
-$title = strip_tags(fetch_param_string('title', ''));
-$text = fetch_param_string('text', '');
+$name = fetch_param_string('name', '');
+$title = fetch_param_string('title', '');
+$text = fetch_param_string('text', '', true);
 $image = fetch_param_string('image', '');
 $layout = fetch_param_string('layout', 'imageright');
 

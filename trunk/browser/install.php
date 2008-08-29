@@ -57,8 +57,7 @@ if ($confirmed) {
     $result = true;
     echo "<pre>";
     
-    if ($result) echo "Creating answers table: qh_answer\n";
-    ob_flush();
+    if ($result) { echo "Creating answers table: qh_answer\n"; @ob_flush(); }
     $result = $result && mysql_query("DROP TABLE IF EXISTS `qh_answer`;");
     $result = $result && mysql_query("
     	CREATE TABLE `qh_answer` (
@@ -72,8 +71,7 @@ if ($confirmed) {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='One record per possible answer';
 		");
 
-    if ($result) echo "Creating attempt table: qh_attempt\n";
-    ob_flush();
+    if ($result) { echo "Creating attempt table: qh_attempt\n"; @ob_flush(); }
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_attempt`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `qh_attempt` (
@@ -88,8 +86,7 @@ if ($confirmed) {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='One record per submitted answer';
 	");
 
-    if ($result) echo "Creating pages table: qh_page\n";
-    ob_flush();
+    if ($result) { echo "Creating pages table: qh_page\n"; @ob_flush(); }
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_page`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `qh_page` (
@@ -104,8 +101,7 @@ if ($confirmed) {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Each record represents a page which can appear in the HUD';
 	");
     
-    if ($result) echo "Inserting default system pages\n";
-    ob_flush();
+    if ($result) { echo "Inserting default system pages\n"; @ob_flush(); }
     $result = $result && mysql_query("
         INSERT INTO `qh_page` (`id`, `name`, `title`, `text`, `image`, `layout`) VALUES
         (2, 'home', 'Welcome!', '<p style=\"font-size:16pt;\">Your Quiz HUD is working and ready for use.</p>\n\n<p style=\"font-size:14pt;\">You can learn about your surroundings using the \"Explore\" tab, or take a quiz using the \"Quiz\" tab.</p>', 'qh.jpg', 'imageright'),
@@ -113,8 +109,7 @@ if ($confirmed) {
         (5, 'explore', 'Explore Mode', '<p>\nWelcome to explore mode!<br/><br/>\n\nIn this mode, you can click the objects around you in the virtual environment.\n</p>', 'magnifier.jpg', 'imageright');
     ");
 
-    if ($result) echo "Creating question table: qh_question\n";
-    ob_flush();
+    if ($result) { echo "Creating question table: qh_question\n"; @ob_flush(); }
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_question`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `qh_question` (
@@ -123,12 +118,11 @@ if ($confirmed) {
 		`text` varchar(255) NOT NULL COMMENT 'The text of the question',
 		`weight` float NOT NULL default '1' COMMENT 'The weight of this question, e.g. 0.0 for an unassessed question',
 		`type` enum('multiplechoice','explore') NOT NULL COMMENT 'Indicates the type of question. Multiple choice questions offer a set of answers which may be selected from. Explore questions allow the user to click features in-world.',
-		PRIMARY KEY  (`id`),
+		PRIMARY KEY  (`id`)
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='One record per question'; 
 	");
 
-    if ($result) echo "Creating quiz table: qh_quiz\n";
-    ob_flush();
+    if ($result) { echo "Creating quiz table: qh_quiz\n"; @ob_flush(); }
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_quiz`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `qh_quiz` (
@@ -139,8 +133,7 @@ if ($confirmed) {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='One record per quiz';
 	");
 
-    if ($result) echo "Creating user table: qh_user\n";
-    ob_flush();
+    if ($result) { echo "Creating user table: qh_user\n"; @ob_flush(); }
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_user`;");
 	$result = $result && mysql_query("
 		CREATE TABLE `qh_user` (
@@ -152,11 +145,10 @@ if ($confirmed) {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='One record per known user';
 	");
 
-    if ($result) echo "Creating configuration table: qh_config\n";
-    ob_flush();
+    if ($result) { echo "Creating configuration table: qh_config\n"; @ob_flush(); }
 	$result = $result && mysql_query("DROP TABLE IF EXISTS `qh_config`;");
 	$result = $result && mysql_query("
-		CREATE TABLE `quizhud`.`qh_config` (
+		CREATE TABLE `qh_config` (
 		`id` INT( 10 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Primary ID',
 		`name` VARCHAR( 255 ) NOT NULL COMMENT 'The name of the setting.',
 		`value` VARCHAR( 255 ) NULL COMMENT 'The value of the setting.',

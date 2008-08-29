@@ -196,10 +196,12 @@ function require_login($nexturl = '')
 // Fetch and clean a named request parameter as a string.
 //  $name = the name of the parameter to fetch
 //  $default = the default value to return if the parameter was not specified
-function fetch_param_string($name, $default = null)
+//  $raw = if true (not default) then HTML entities won't be encoded
+function fetch_param_string($name, $default = null, $raw = false)
 {
     if (!isset($_REQUEST[$name])) return $default;
-    return addslashes($_REQUEST[$name]);
+    if ($raw) return $_REQUEST[$name];
+    return htmlentities($_REQUEST[$name], ENT_QUOTES, false);
 }
 
 // Fetch and clean a named request parameter as an integer.
