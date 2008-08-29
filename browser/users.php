@@ -115,7 +115,7 @@ $actiondelete = QUIZHUD_WWW_ROOT.'/browser/users.php';
 
 // Fetch a list of all the users in the system.
 $users = get_users();
-if ($users === false) error('Failed to query database for pages.');
+if ($users === false) error('Failed to query database for users. Perhaps you have not <a href="install.php" title="Click here to visit the installation page">installed quizHUD</a> yet?');
 if (count($users) == 0) {
     echo '<p class="info">No users to display</p>';
 } else {

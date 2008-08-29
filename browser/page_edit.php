@@ -32,6 +32,9 @@ $page = null;
 // Any message to be shown with returned data will be put in here
 $message = '';
 
+// If there is no page ID or session data, then assume we're creating a new page
+if (!isset($_SESSION['id']) && !isset($_GET['pageid'])) $_GET['pageid'] = 'new';
+
 // Has a page been specified in the GET or SESSION values?
 if (isset($_GET['pageid'])) {
     // Are we being asked to create a new page?
@@ -151,7 +154,10 @@ function changeImagePreview(sel)
                     ?>
                 </select>
                 <br/>
-                <span class="note">(You may select one image from the images folder to be displayed with this page. Optional.)</span>
+                <span class="note">
+                    (You may select one image from the images folder to be displayed with this page. Optional.
+                    <a href="help.php#pageimages" title="Click here for help information on page images.">Image Help</a>.)
+                </span>
                 <br/>
                 <img id="previewImage" src="<?php if (empty($page->image)) echo "img/preview.png"; else echo QUIZHUD_WWW_ROOT.'/'.QUIZHUD_IMG_FOLDER.'/'.$page->image; ?>" alt="Preview Image" style="margin-top:8px; border:solid 1px black;"/>
                 

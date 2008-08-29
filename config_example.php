@@ -22,16 +22,16 @@
 ///// CUSTOM CONFIGURATION SETTINGS /////
 
 // The root of the quizhud site (MODIFY THESE FOR YOUR WEBSITE)
-define('QUIZHUD_WWW_ROOT', 'http://www.yoursite.blah/quizhud'); // The URL to your quiz HUD installation
-define('QUIZHUD_DIR_ROOT', '/var/www/yoursite/htdocs/quizhud'); // The absolute path on disk to your quiz HUD installation
+define('QUIZHUD_WWW_ROOT', ''); // The URL to your quiz HUD installation
+define('QUIZHUD_DIR_ROOT', ''); // The absolute path on disk to your quiz HUD installation
 
 // Administration password (use this to login through your web-browser when you want to edit stuff)
-define('QUIZHUD_ADMIN_PWD', 'blah');
+define('QUIZHUD_ADMIN_PWD', '');
 // Internal password for requests coming from SL (PUT YOUR OWN RANDOM PASSWORD HERE)
-define('QUIZHUD_INTERNAL_PWD', 'foobar');
+define('QUIZHUD_INTERNAL_PWD', '');
 
 // Database connection details (MODIFY THESE FOR YOUR DATABASE)
-$dbhost = 'localhost';
+$dbhost = '';
 $dbuser = '';
 $dbpass = '';
 $dbname = '';
@@ -46,6 +46,7 @@ define('QUIZHUD_IMG_FOLDER', 'img'); // Folder where the images are stored, rela
 // Error checks... do not change these!
 if (QUIZHUD_WWW_ROOT == '') exit('ERROR: WWW root not set in config.php');
 if (QUIZHUD_DIR_ROOT == '') exit('ERROR: DIR root not set in config.php');
+if (empty($dbhost) || empty($dbuser) || empty($dbname)) exit('ERROR: database details not fully specified in config.php');
 
 // Connect to the database
 global $db;

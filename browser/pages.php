@@ -104,7 +104,7 @@ if (!empty($message)) {
 
 // Fetch a list of all the pages in the system.
 $pages = get_pages();
-if ($pages === false) error('Failed to query database for pages.');
+if ($pages === false) error('Failed to query database for pages. Perhaps you have not <a href="install.php" title="Click here to visit the installation page">installed quizHUD</a> yet?');
 if (count($pages) == 0) {
     echo '<p class="info">No pages to display</p>';
 } else {
