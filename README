@@ -62,6 +62,17 @@ Change the "..." text to match the internal password you specified in the "confi
 NOTE: if you are using group-owned land, then you will also need to deed the object to the group. To do this, click the "General" tab, and select the appropriate group. Make sure the "Share with group" box is checked, and then click the "Deed" button. If you are unable to perform these steps, then you may not have permission to deed objects to the group. Speak to your group owner.
 
 
+Parcel Media Settings
+---------------------
+The parcel which the manager object is on will define the parcel media settings which affect your quizHUD device. For this reason, you should setup your parcel media to use the media texture provided when you got the objects (you can use your own texture too, but remember to modify your quizHUD objects to match).
+
+It is also advisable (but not essential) to setup the URL of the quizHUD pages in your media settings, so that the "home" page will be immediately visible. To do this, take your quizHUD URL, and add "/hud/pages.php" to the end.
+
+IMPORTANT: you MUST have the parcel media setup to use a web-page of some kind, even if the address is different.
+
+ALSO IMPORTANTL: Finally, you should also setup your media size to 500 pixels wide by 250 pixels high. This will make sure the quizHUD pages render correctly, in full. 
+
+
 quizHUD
 -------
 You will need to do a little more configuration for the HUD object. First of all, you might like to rename it to identify which site it belongs to. To do this, find it in your inventory, right-click it, and select "Properties". Edit the "name" field (e.g. add your class name or website URL to the end), and close the properties window.
