@@ -122,31 +122,6 @@ header('Content-type: text/css');
 }
 
 
-/***** CORE STYLES *****/
-.error {
-    background-color:#ffaaaa;
-    border:solid 2px #dd0000;
-    text-align:center;
-    color:black;
-    padding:8px;
-}
-
-.error a { color:blue; }
-.error a:visited { color:#000088; }
-.error a:hover { color:#00ffff; }
-
-.info {
-    background-color:#aaffaa;
-    border:solid 2px #00dd00;
-    text-align:center;
-    color:black;
-    padding:4px;
-}
-
-
-/***** BREADCRUMB NAVIGATION *****/
-
-
 
 <?php
 // Define the names and colours of our rounded corner styles.
@@ -554,4 +529,32 @@ table.data td {
 .answerform .text { width:45%; }
 .answerform .value { width:8%; }
 .answerform .action { text-align:left; width:15%; white-space:nowrap; }
+
+
+
+
+/***** CORE STYLES *****/
+.error {
+    background-color:#ffaaaa;
+    border:solid 2px #dd0000;
+    text-align:center;
+    color:#000000;
+    padding:8px;
+}
+
+.error a { color:#0000ff; }
+.error a:visited { color:#0000ff; }
+.error a:hover { color:#ffffff; }
+
+#main .error a { color:#0000ff; }
+#main .error a:visited { color:#0000ff; }
+#main .error a:hover { color:#ffffff; }
+
+.info {
+    background-color:#aaffaa;
+    border:solid 2px #00dd00;
+    text-align:center;
+    color:black;
+    padding:4px;
+}
 

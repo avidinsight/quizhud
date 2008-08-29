@@ -136,7 +136,7 @@ $curquizid = get_current_quiz();
 if ($curquizid === false) $curquizid = 0;
 // Fetch a list of all the quizzes in the system.
 $quizzes = get_quizzes();
-if ($quizzes === false) error('Failed to query database for quizzes.');
+if ($quizzes === false) error('Failed to query database for quizzes. Perhaps you have not <a href="install.php" title="Click here to visit the installation page">installed quizHUD</a> yet?');
 if (count($quizzes) == 0) {
     echo '<p class="info">No quizzes to display</p>';
 } else {    

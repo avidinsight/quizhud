@@ -45,6 +45,16 @@ require_once('_page_header.php');
  These pages are typically accessed when the user is using the quizHUD in "Explore" mode.
 </p>
 
+<h5 id="pageimages">Images</h5>
+<p>
+ You can select an image from the list to add to your page, and if you have JavaScript enabled in your browser, you will see
+ a preview of it underneath.
+ You can upload your own images to use on your pages, typically by using FTP software to connect to your quizHUD website.
+ From the root of your quizHUD installation, look for the folder called "<?php echo QUIZHUD_IMG_FOLDER ?>", and upload your images there.
+ Note that the quizHUD will not resize your images at all -- they will be displayed <strong>full size</strong>, so you will need
+ to perform any scaling necessary.
+</p>
+
 <h5 id="pagelayout">Page Layouts</h5>
 <p>
  There are currently 4 available layouts to choose from:
