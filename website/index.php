@@ -26,10 +26,6 @@ Using the website software, you can create informative webpages which can be vie
 and setup quizzes and surveys. You can also monitor users' attempts at quizzes through the web-interface.
 </p>
 
-<p style="font-weight:bold;">
-Please note: the quizHUD is not quite ready for general use yet.
-Downloads will be made available very soon!
-</p>
 
 <?php end_single_column(); ?>
 
