@@ -36,7 +36,7 @@ where you can try out a demo, or get the objects for your own personal use.
 
 <?php start_single_column('Download quizHUD Software', null, null, false); ?>
 <p>
- Before you can use your own quizHUD, you will need to download and install the software on a webserver.
+ Before you can create your own quizHUD learning activities for your students, you will need to download and install the software on a webserver.
  You will need a webserver with PHP4 or higher and MySQL 4 or higher.
  (It <i>is</i> possible to install on your own desktop computer, but firewalls and network security will often prevent the quizHUD objects in Second Life from being able to access it, so a proper webserver is recommended).
 </p>
