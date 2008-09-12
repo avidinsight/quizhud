@@ -11,7 +11,7 @@ require_once('config.php');
 
 // Define the version number of the files.
 // (This does NOT indicate the installed version... that information is stored in the database).
-define('QUIZHUD_VERSION', '1.1');
+define('QUIZHUD_VERSION', '2.0');
 
 // Report an error and terminate the script
 //  $error = an optional error message
@@ -36,7 +36,7 @@ function set_config($name, $value)
 
     // Execute the query to add or overwrite.
     $result = mysql_query("
-        REPLACE INTO qh_config
+        REPLACE INTO {$QUIZHUD_PREFIX}config
         SET name = '$name', value = '$value'
     ");
 
@@ -55,7 +55,7 @@ function get_config($name)
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_config
+        FROM {$QUIZHUD_PREFIX}config
         WHERE name = '$name'
         LIMIT 1
     ");
@@ -109,12 +109,12 @@ function is_installed()
 {
     // Define a list of tables which should be present
     $tables = array();
-    $tables['qh_answer'] = false;
-    $tables['qh_attempt'] = false;
-    $tables['qh_page'] = false;
-    $tables['qh_question'] = false;
-    $tables['qh_quiz'] = false;
-    $tables['qh_user'] = false;
+    $tables[{$QUIZHUD_PREFIX}.'answer'] = false;
+    $tables[{$QUIZHUD_PREFIX}.'attempt'] = false;
+    $tables[{$QUIZHUD_PREFIX}.'page'] = false;
+    $tables[{$QUIZHUD_PREFIX}.'question'] = false;
+    $tables[{$QUIZHUD_PREFIX}.'quiz'] = false;
+    $tables[{$QUIZHUD_PREFIX}.'user'] = false;
     
     // Get a list of all tables in the database
     $result = mysql_query('SHOW TABLES');
@@ -128,6 +128,14 @@ function is_installed()
     // Were any tables missing?
     if (in_array(false, $tables)) return false;
     return true;
+}
+
+// Check if quizHUD needs to be upgraded
+//  (compares the version number in code with the version number in the database)
+// Returns true if upgrade is needed, or false otherwise
+function needs_upgrade()
+{
+    return ((float)QUIZHUD_VERSION > get_quizhud_version());
 }
 
 // Require that the quizHUD is installed. Terminates with error message if not.
@@ -320,7 +328,7 @@ function get_page($name)
     // Attempt to load the database record
     $result = mysql_query("
         SELECT *
-        FROM qh_page
+        FROM {$QUIZHUD_PAGE}page
         WHERE name = '$name'
         LIMIT 1
     ");
@@ -344,7 +352,7 @@ function get_page_by_id($id)
     // Attempt to load the database record
     $result = mysql_query("
         SELECT *
-        FROM qh_page
+        FROM {$QUIZHUD_PREFIX}page
         WHERE id = $id
         LIMIT 1
     ");
@@ -364,7 +372,7 @@ function get_pages()
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_page
+        FROM {$QUIZHUD_PREFIX}page
         WHERE 1
         ORDER BY name
         LIMIT 0, 10000
@@ -508,7 +516,7 @@ function get_quiz($id)
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_quiz
+        FROM {$QUIZHUD_PREFIX}quiz
         WHERE id = $id
         LIMIT 1
     ");
@@ -527,7 +535,7 @@ function get_quizzes()
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_quiz
+        FROM {$QUIZHUD_PREFIX}quiz
         WHERE 1
         LIMIT 0,10000
     ");
@@ -557,7 +565,7 @@ function get_questions($id, $skipunassessed = false, $skipnoanswers = true)
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_question
+        FROM {$QUIZHUD_PREFIX}question
         WHERE quizid = $id
         ORDER BY id
         LIMIT 0,10000
@@ -601,7 +609,7 @@ function get_question($quizid, $questionid)
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_question
+        FROM {$QUIZHUD_PREFIX}question
         WHERE quizid = $quizid AND id = $questionid
         LIMIT 1
     ");
@@ -625,7 +633,7 @@ function get_answers($questionid)
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_answer
+        FROM {$QUIZHUD_PREFIX}answer
         WHERE questionid = $questionid
         ORDER BY shortname
         LIMIT 0,10000
@@ -655,7 +663,7 @@ function get_answer($answerid)
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_answer
+        FROM {$QUIZHUD_PREFIX}answer
         WHERE id = $answerid
         LIMIT 1
     ");
@@ -683,7 +691,7 @@ function find_answer($questionid, $shortname)
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_answer
+        FROM {$QUIZHUD_PREFIX}answer
         WHERE questionid = $questionid AND shortname = '$shortname'
         LIMIT 1
     ");
@@ -706,7 +714,7 @@ function get_user($userid)
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_user
+        FROM {$QUIZHUD_PREFIX}user
         WHERE id = $userid
         LIMIT 1
     ");
@@ -726,7 +734,7 @@ function get_users()
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_user
+        FROM {$QUIZHUD_PREFIX}user
         WHERE 1
         ORDER BY name, uuid, id
         LIMIT 0,100000
@@ -751,7 +759,7 @@ function load_user($uuid, $name)
     // Attempt to find the specified user (by UUID only -- name is purely for informational purposes)
     $result = mysql_query("
         SELECT *
-        FROM qh_user
+        FROM {$QUIZHUD_PREFIX}user
         WHERE uuid = '$uuid'
         LIMIT 1
     ");
@@ -760,7 +768,7 @@ function load_user($uuid, $name)
     if ($result === false || mysql_num_rows($result) < 1) {
         // Yes - insert a new record
         $insert = mysql_query("
-             INSERT INTO qh_user (uuid, name)
+             INSERT INTO {$QUIZHUD_PREFIX}user (uuid, name)
              VALUES ('$uuid', '$name')
         ");
         
@@ -778,7 +786,7 @@ function load_user($uuid, $name)
     if (!empty($name) && $output->name != $name) {
         // Yes - attempt to update the record
         $update = mysql_query("
-            UPDATE qh_user
+            UPDATE {$QUIZHUD_PREFIX}user
             SET name = '$name'
             WHERE id = {$output->id}
             LIMIT 1
@@ -805,7 +813,7 @@ function get_attempts($questionid, $userid)
     // Execute the query
     $result = mysql_query("
         SELECT *
-        FROM qh_attempt
+        FROM {$QUIZHUD_PREFIX}attempt
         WHERE questionid = $questionid AND userid = $userid
         ORDER BY timestamp
         LIMIT 0, 10000
@@ -838,7 +846,7 @@ function get_attempt($questionid, $userid, $attemptid)
      // Execute the query
      $result = mysql_query("
         SELECT *
-        FROM qh_attempt
+        FROM {$QUIZHUD_PREFIX}attempt
         WHERE questionid = $questionid AND userid = $userid AND id = $attemptid
         LIMIT 1
      ");
@@ -970,7 +978,7 @@ function add_attempt($questionid, $userid, $answer)
     
     // Execute the query
     $result = mysql_query("
-        INSERT INTO qh_attempt (`questionid`, `userid`, `answer`, `timestamp`)
+        INSERT INTO {$QUIZHUD_PREFIX}attempt (`questionid`, `userid`, `answer`, `timestamp`)
         VALUES ($questionid, $userid, '$answer', $timestamp)
     ");
     
@@ -1019,19 +1027,19 @@ function delete_quiz($id)
         foreach ($questions as $question) {
             // Delete all the answers for this question
             mysql_query("
-                DELETE FROM qh_answer
+                DELETE FROM {$QUIZHUD_PREFIX}answer
                 WHERE questionid = {$question->id}
             ");
             
             // Delete all the attempts at this question
             mysql_query("
-                DELETE FROM qh_attempt
+                DELETE FROM {$QUIZHUD_PREFIX}attempt
                 WHERE questionid = {$question->id}
             ");
             
             // Delete the question itself from the database
             mysql_query("
-                DELETE FROM qh_question
+                DELETE FROM {$QUIZHUD_PREFIX}question
                 WHERE id = {$question->id}
                 LIMIT 1
             ");
@@ -1040,7 +1048,7 @@ function delete_quiz($id)
     
     // Finally, delete the quiz
     $result = mysql_query("
-        DELETE FROM qh_quiz
+        DELETE FROM {$QUIZHUD_PREFIX}quiz
         WHERE id = {$quiz->id}
     ");
     return (bool)$result;
@@ -1055,17 +1063,17 @@ function delete_question($id)
 
 	// Delete all answers and attempts which pertain to this question
 	mysql_query("
-		DELETE FROM qh_answer
+		DELETE FROM {$QUIZHUD_PREFIX}answer
 		WHERE questionid = {$id}
 	");
 	mysql_query("
-		DELETE FROM qh_attempt
+		DELETE FROM {$QUIZHUD_PREFIX}attempt
 		WHERE questionid = {$id}
 	");
 	
 	// Finally, delete the question itself
 	$result = mysql_query("
-        DELETE FROM qh_question
+        DELETE FROM {$QUIZHUD_PREFIX}question
         WHERE id = {$id}
         LIMIT 1
     ");
@@ -1082,13 +1090,13 @@ function delete_user($id)
 
 	// Delete all attempts by this user
 	mysql_query("
-		DELETE FROM qh_attempt
+		DELETE FROM {$QUIZHUD_PREFIX}attempt
 		WHERE userid = {$id}
 	");
 	
 	// Delete the user entry
 	$result = mysql_query("
-        DELETE FROM qh_user
+        DELETE FROM {$QUIZHUD_PREFIX}user
         WHERE id = {$id}
         LIMIT 1
     ");
@@ -1117,7 +1125,7 @@ function structure_answers($quizid, $questionid, $moveanswerid = null, $moveup =
     // Execute the query
     $result = mysql_query("
         SELECT id, shortname
-        FROM qh_answer
+        FROM {$QUIZHUD_PREFIX}answer
         WHERE questionid = $questionid
         ORDER BY shortname, id
         LIMIT 0,10000
@@ -1173,7 +1181,7 @@ function structure_answers($quizid, $questionid, $moveanswerid = null, $moveup =
     foreach ($structuredanswers as $sa) {
         // Execute the query
         $result = $result && mysql_query("
-            UPDATE qh_answer
+            UPDATE {$QUIZHUD_PREFIX}answer
             SET shortname = '{$sa['shortname']}'
             WHERE id = {$sa['id']}
             LIMIT 1
