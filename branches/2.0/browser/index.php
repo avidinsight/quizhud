@@ -3,7 +3,7 @@
 //////////
 // QuizHUD administration index.
 // Author: Peter R. Bloomfield
-
+//
 // GPL:
 //
 // This program is free software: you can redistribute it and/or modify
@@ -37,7 +37,13 @@ require_once('_page_header.php');
 
 // Is quizHUD already installed?
 if (is_installed()) {
-    echo '<p>quizHUD appears to be installed successfully. Use the navigation menu above to edit the pages which can be viewed on your quizHUD, add/edit quizzes, and to view the user information. Click the Help button for further information.</p>';
+    // Does it need upgraded?
+    if (needs_upgrade()) {
+        $upgradeurl = QUIZHUD_WWW_ROOT.'/browser/install.php';
+        error("quizHUD needs to be upgraded. Please visit the <a href=\"$upgradeurl\" title=\"Click here to upgrade quizHUD\">installation page</a> before continuing.");
+    } else {
+        echo '<p>quizHUD appears to be installed successfully. Use the navigation menu above to edit the pages which can be viewed on your quizHUD, add/edit quizzes, and to view the user information. Click the Help button for further information.</p>';
+    }
 } else {
     // No - display a link to the installation page
     $installurl = QUIZHUD_WWW_ROOT.'/browser/install.php';

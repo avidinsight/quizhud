@@ -30,6 +30,12 @@ define('QUIZHUD_ADMIN_PWD', '');
 // Internal password for requests coming from SL (PUT YOUR OWN RANDOM PASSWORD HERE)
 define('QUIZHUD_INTERNAL_PWD', '');
 
+// Set a prefix to be used for the database tables.
+// You only need to change this if you install multiple quizHUDs in one database,
+//  or you have other conflicting tables in the same database.
+$QUIZHUD_PREFIX = 'qh_';
+global $QUIZHUD_PREFIX;
+
 // Database connection details (MODIFY THESE FOR YOUR DATABASE)
 $dbhost = '';
 $dbuser = '';
