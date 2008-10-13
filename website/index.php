@@ -29,6 +29,14 @@ and setup quizzes and surveys. You can also monitor users' attempts at quizzes t
 
 <?php end_single_column(); ?>
 
+<p>&nbsp;</p>
+
+<h2 style="text-align:center;">
+ <a href="http://slurl.com/secondlife/virtuALBA/54/225/25" title="Click here for a SLurl">
+  Click here</a> to visit our music classroom demo,<br/>which was shown at SLCC08.
+ 
+</h2>
+
 <h1 style="text-align:center;" id="news"><br/>News</h1>
 
 <?php start_single_column("Software Release", null, null, false); ?>
