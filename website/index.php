@@ -32,8 +32,8 @@ and setup quizzes and surveys. You can also monitor users' attempts at quizzes t
 <p>&nbsp;</p>
 
 <h2 style="text-align:center;">
- <a href="http://slurl.com/secondlife/virtuALBA/54/225/25" title="Click here for a SLurl">
-  Click here</a> to visit our music classroom demo,<br/>which was shown at SLCC08.
+ <a href="http://slurl.com/secondlife/Sloodle/182/27/139" title="Click here for a SLurl">
+  Click here</a> to visit our music class demo.
  
 </h2>
 
