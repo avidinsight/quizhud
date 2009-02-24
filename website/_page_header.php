@@ -46,7 +46,10 @@ if (is_array($CFG->styles)) {
             if ($navname == $CFG->currentpage) echo '<li class="current_page_item">';
             else echo '<li>';
             // Output the rest of the item
-            echo "<a href=\"{$CFG->wwwroot}/{$navpage}\" title=\"Click here to visit the {$navname} page\">{$navname}</a></li>\n";
+            $link = '';
+            if (strpos($navpage, 'http') === 0) $link = $navpage;
+            else $link = $CFG->wwwroot.'/'.$navpage;
+            echo "<a href=\"{$link}\" title=\"Click here to visit the {$navname} page\">{$navname}</a></li>\n";
         }
     ?>
 	</ul>

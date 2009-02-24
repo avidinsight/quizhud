@@ -37,22 +37,26 @@ and setup quizzes and surveys. You can also monitor users' attempts at quizzes t
  
 </h2>
 
+
 <h1 style="text-align:center;" id="news"><br/>News</h1>
 
-<?php start_single_column("Software Release", null, null, false); ?>
+<?php start_single_column("Publication and Discussion", null, null, false); ?>
 <p>
- At last, you are able to download the quizHUD software and install it yourself!
- Take a look at our <a href="get.php" title="Click here to get the quizHUD tools">Get quizHUD</a> page,
- and go down to the 'Download quizHUD Software' section, to get all the details.
+ The quizHUD research so far has now been published in the 
+  <a href="http://cis.paisley.ac.uk/research/journal/vol13.htm" title="Click here to visit the journal">Computing and Information Systems Journal 13(1)</a>,
+  at the University of the West of Scotland.
+ You can view a PDF of the quizHUD article itself:
+  "<a href="http://www.avid-insight.co.uk/publications/immersive_learning_and_assessment_with_quizhud.pdf" title="Click here to open a PDF file of the paper">Immersive Learning and Assessment with quizHUD</a>", by Peter R. Bloomfield and Daniel Livingstone.
 </p>
 
 <p>
- Happy quizzing!
+ We also now have a
+  <a href="http://www.sloodle.org/moodle/mod/forum/view.php?id=1120" title="Click here to visit the discussion forum">discussion forum</a>
+ available on the main SLOODLE website, which you are welcome to use to ask for help or suggest ideas.
 </p>
-<?php end_single_column('29th August 2008', 'Peter R. Bloomfield'); ?>
+<?php end_single_column('24th February 2009', 'Peter R. Bloomfield'); ?>
 
 <p>&nbsp;</p>
-
 
 
 <?php
@@ -68,6 +72,23 @@ XXXEODXXX;
     exit();
 }
 ?>
+
+
+<h1 style="text-align:center;" id="news"><br/>News</h1>
+
+<?php start_single_column("Software Release", null, null, false); ?>
+<p>
+ At last, you are able to download the quizHUD software and install it yourself!
+ Take a look at our <a href="get.php" title="Click here to get the quizHUD tools">Get quizHUD</a> page,
+ and go down to the 'Download quizHUD Software' section, to get all the details.
+</p>
+
+<p>
+ Happy quizzing!
+</p>
+<?php end_single_column('29th August 2008', 'Peter R. Bloomfield'); ?>
+
+<p>&nbsp;</p>
 
 <?php start_single_column("In-World Tools", null, null, false); ?>
 <p>
