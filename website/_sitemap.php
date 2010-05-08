@@ -8,12 +8,11 @@
 // Be sure the inclusion worked
 if (!isset($CFG)) exit();
 
-// Determine the siteroot WITHOUT the leading http
+header("Content-type:text/plain");
+
 $siteroot = '';
 global $siteroot;
-$pos = strpos($CFG->wwwroot, '://');
-if ($pos === false) $siteroot = $CFG->wwwroot;
-else $siteroot = substr($CFG->wwwroot, $pos + 3);
+$siteroot = $CFG->wwwroot;
 
 // Outputs a sitemap entry for a page.
 //  $path = relative path to the page to output
@@ -26,7 +25,7 @@ function add_page($path)
 // Go through each page in the navigation menu
 if (is_array($CFG->navigation)) {
     foreach ($CFG->navigation as $nav) {
-        add_page($nav);
+        if (stripos($nav, 'http://') === false) add_page($nav);
     }
 }
 
