@@ -13,13 +13,10 @@ require_once('_page_header.php');
 
 <?php start_single_column('quizHUD Documentation'); ?>
 <p>
-As with many open source projects, documentation tends to be the last thing to get done. We'll get round to this soon!
-The quizHUD should hopefully be fairly user friendly though, and our <a href="demo.php" title="Click here to view our demo videos">Demo Videos</a> should help you with most areas.
+As with many open source projects, documentation tends to be the last thing to get done... or indeed, it never gets done.
+There's a readme file with the software download though. Hopefully that's enough to get you started!
 </p>
 <?php end_single_column(); ?>
-
-
-
 
 
 <p>&nbsp;</p>

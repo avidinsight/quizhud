@@ -9,8 +9,8 @@ print_sub_menu($CFG->footermenu);
         // Output the website copyright info.
         echo $CFG->copyrightstartyear;
         // Output the current year too, if later than start year
-        $currentyear = (int)date('Y');
-        if ($currentyear > $CFG->copyrightstartyear) echo '-',$currentyear;
+        if (empty($CFG->copyrightendyear)) $CFG->copyrightendyear = (int)date('Y');
+        if ($CFG->copyrightendyear > $CFG->copyrightstartyear) echo '-',$CFG->copyrightendyear;
         echo ' ',$CFG->copyrightattribution;
     ?>
     <br/><br/>

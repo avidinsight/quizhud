@@ -40,8 +40,8 @@ The following individuals have contributed to the development of quizHUD:
 </p>
 <ul>
  <li>
-  <a href="http://peter.avid-insight.co.uk" title="Click here to visit Peter's website">Peter R. Bloomfield</a>
-  <i>(SL: <a href="http://pedro.avid-insight.co.uk" title="Click here to visit Pedro's website">Pedro McMillan</a>)</i>
+  <a href="http://peter.avid-insight.co.uk" title="Click here to visit Peter's website">Peter R. Bloomfield</a><br/>
+  <i>(SL: Pedro McMillan / Reuben Pelyard)</i>
  </li>
  
  <li>Clement Ramel <i>(SL: Pidtwicky Acker)</i></li>
@@ -51,7 +51,7 @@ The following individuals have contributed to the development of quizHUD:
 </ul>
 <?php start_second_column("Supported by..."); ?>
 <p>
-We wish to thank the following organisations for their support:
+We wish to thank the following organisations/projects for their support:
 </p>
 <ul>
  <li>
@@ -67,14 +67,8 @@ We wish to thank the following organisations for their support:
  </li>
  
  <li>
-  <a href="http://www.sloodle.org" title="Click here to visit the Sloodle project website">
-   Sloodle
-  </a>
- </li>
- 
- <li>
-  <a href="http://www.virtualba.co.uk" title="Click here to visit virtuALBA's website">
-   virtuALBA
+  <a href="http://www.sloodle.org" title="Click here to visit the SLOODLE website">
+   SLOODLE
   </a>
  </li>
 </ul>

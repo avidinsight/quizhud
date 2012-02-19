@@ -15,8 +15,22 @@ require_once('_page_header.php');
 ?>
 
 
-<?php start_single_column(''); ?>
-<h1>Welcome!</h1>
+
+<?php start_single_column('', null, "text-align:center;color:#600;", true); ?>
+<h2>Please Note</h2><br/>
+<p style="font-size:120%;">
+This project is no longer being maintained.
+</p>
+
+
+<?php end_single_column(); ?>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<?php start_single_column('', null, null, false); ?>
+<h1>Welcome!</h1><br/>
 <p style="font-size:120%; text-align:justify;">
 <img src="images/quizhud_screenshot_1.jpg" style="float:right; margin-left:12px; border:solid 1px black;" alt="quizHUD screenshot" title="A screenshot showing the quizHUD object in Second Life" />
 The quizHUD is a free, open source educational tool for Second Life.
@@ -31,30 +45,22 @@ and setup quizzes and surveys. You can also monitor users' attempts at quizzes t
 
 <p>&nbsp;</p>
 
-<h2 style="text-align:center;">
- <a href="http://slurl.com/secondlife/Sloodle/182/27/139" title="Click here for a SLurl">
-  Click here</a> to visit our music class demo.
- 
-</h2>
+
 
 
 <h1 style="text-align:center;" id="news"><br/>News</h1>
 
-<?php start_single_column("Publication and Discussion", null, null, false); ?>
+<?php start_single_column("That's all folks!", null, null, false); ?>
 <p>
- The quizHUD research so far has now been published in the 
-  <a href="http://cis.paisley.ac.uk/research/journal/vol13.htm" title="Click here to visit the journal">Computing and Information Systems Journal 13(1)</a>,
-  at the University of the West of Scotland.
- You can view a PDF of the quizHUD article itself:
-  "<a href="http://www.avid-insight.co.uk/publications/immersive_learning_and_assessment_with_quizhud.pdf" title="Click here to open a PDF file of the paper">Immersive Learning and Assessment with quizHUD</a>", by Peter R. Bloomfield and Daniel Livingstone.
+ I'm sorry to say that I will not be supporting or developing quizHUD any further, and that the in-world demo is now unavailable (it's actually been offline for quite some time).
+ Sorry for any inconvenience. You are still very welcome to get the source code though, although please note that the technology is rather out of date now!
+</p>
+ 
+</p>
+ Very many thanks to everybody who has been interested in quizHUD. I hope a few people have found it interesting or useful!
 </p>
 
-<p>
- We also now have a
-  <a href="http://www.sloodle.org/moodle/mod/forum/view.php?id=1120" title="Click here to visit the discussion forum">discussion forum</a>
- available on the main SLOODLE website, which you are welcome to use to ask for help or suggest ideas.
-</p>
-<?php end_single_column('24th February 2009', 'Peter R. Bloomfield'); ?>
+<?php end_single_column('19th February 2012', 'Peter R. Bloomfield'); ?>
 
 <p>&nbsp;</p>
 
@@ -74,7 +80,24 @@ XXXEODXXX;
 ?>
 
 
-<h1 style="text-align:center;" id="news"><br/>News</h1>
+<?php start_single_column("Publication and Discussion", null, null, false); ?>
+<p>
+ The quizHUD research so far has now been published in the 
+  <a href="http://cis.paisley.ac.uk/research/journal/vol13.htm" title="Click here to visit the journal">Computing and Information Systems Journal 13(1)</a>,
+  at the University of the West of Scotland.
+ You can view a PDF of the quizHUD article itself:
+  "<a href="http://www.avid-insight.co.uk/publications/immersive_learning_and_assessment_with_quizhud.pdf" title="Click here to open a PDF file of the paper">Immersive Learning and Assessment with quizHUD</a>", by Peter R. Bloomfield and Daniel Livingstone.
+</p>
+
+<p>
+ We also now have a
+  <a href="http://www.sloodle.org/moodle/mod/forum/view.php?id=1120" title="Click here to visit the discussion forum">discussion forum</a>
+ available on the main SLOODLE website, which you are welcome to use to ask for help or suggest ideas.
+</p>
+<?php end_single_column('24th February 2009', 'Peter R. Bloomfield'); ?>
+
+<p>&nbsp;</p>
+
 
 <?php start_single_column("Software Release", null, null, false); ?>
 <p>

@@ -22,7 +22,7 @@ $CFG->pagekeywords = 'quizhud, quiz, hud, second life, second, life, sl, educati
 
 // Paths to the website: browse and disk paths
 $CFG->wwwroot = 'http://quizhud.avid-insight.co.uk';
-$CFG->dirroot = '/var/www/vhosts/avid-insight.co.uk/subdomains/quizhud/httpdocs';
+$CFG->dirroot = '/home/quizhud/public';
 
 
 // Relative path to the stylesheet documents (numeric array)
